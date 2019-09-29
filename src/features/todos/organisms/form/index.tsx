@@ -54,6 +54,7 @@ export const Form = () => {
         <Input.TextArea
           value={description}
           onChange={onDescriptionChange}
+          rows={4}
         />
       </AntdForm.Item>
 
