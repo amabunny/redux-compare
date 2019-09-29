@@ -1,5 +1,5 @@
 import { ThunkDispatch } from 'redux-thunk'
-import { MiddlewareAPI, Middleware, Dispatch as ReduxDispatch } from 'redux'
+import { MiddlewareAPI, Dispatch as ReduxDispatch } from 'redux'
 import { TTodosActions, ITodosState } from 'features/todos'
 
 export type TDispatchableActions = TTodosActions

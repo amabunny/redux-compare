@@ -36,6 +36,18 @@ export const todosReducer = (state = initialState, action: TTodosActions): ITodo
         ]
       }
 
+    case 'DELETE_TASK':
+      return {
+        ...state,
+        data: state.data.filter(task => task.id !== action.taskId)
+      }
+
+    case 'CHANGE_FILTER_TYPE':
+      return {
+        ...state,
+        filterType: action.filterType
+      }
+
     default:
       return state
   }

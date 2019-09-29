@@ -1,5 +1,5 @@
 import { Action } from 'redux'
-import { ITodo } from './types'
+import { ITodo, TodoFilterTypes } from './types'
 
 export interface ILoadTasksAction extends Action {
   type: 'LOAD_TASKS'
@@ -19,8 +19,20 @@ export interface IAddTaskAction extends Action {
   data: ITodo
 }
 
+export interface IDeleteTaskAction extends Action {
+  type: 'DELETE_TASK'
+  taskId: number
+}
+
+export interface IChangeFilterTypesAction extends Action {
+  type: 'CHANGE_FILTER_TYPE'
+  filterType: TodoFilterTypes
+}
+
 export type TTodosActions =
   | ILoadTasksAction
   | ILoadTasksSuccessAction
   | ILoadTasksErrorAction
   | IAddTaskAction
+  | IDeleteTaskAction
+  | IChangeFilterTypesAction
