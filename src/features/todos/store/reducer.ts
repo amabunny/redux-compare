@@ -39,13 +39,29 @@ export const todosReducer = (state = initialState, action: TTodosActions): ITodo
     case 'DELETE_TASK':
       return {
         ...state,
-        data: state.data.filter(task => task.id !== action.taskId)
+        data: state.data.filter(task => task.timestamp !== action.taskId)
       }
 
     case 'CHANGE_FILTER_TYPE':
       return {
         ...state,
         filterType: action.filterType
+      }
+
+    case 'TOGGLE_TODO_DONE_ACTION':
+      return {
+        ...state,
+        data: state.data.map(todo => {
+          if (todo.timestamp === action.todoId) {
+            return {
+              ...todo,
+              isDone: action.flag,
+              doneTimestamp: action.doneTimestamp
+            }
+          }
+
+          return todo
+        })
       }
 
     default:

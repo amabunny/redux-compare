@@ -4,7 +4,7 @@ import { useThunkDispatch, useSelector } from 'features/store'
 import { Form } from '../form'
 import { List } from '../list'
 import { FilterTypesSelect } from '../../molecules/filter-types-select'
-import { loadTasks, changeFilterType } from '../../store/actions'
+import { loadTasksThunk, changeFilterType } from '../../store/actions'
 import { TodoFilterTypes } from '../../types'
 
 export const TodosRoot = () => {
@@ -24,7 +24,7 @@ export const TodosRoot = () => {
 
   useEffect(
     () => {
-      dispatch(loadTasks())
+      dispatch(loadTasksThunk())
     },
     [dispatch]
   )

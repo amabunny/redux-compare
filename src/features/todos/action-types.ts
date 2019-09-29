@@ -29,6 +29,13 @@ export interface IChangeFilterTypesAction extends Action {
   filterType: TodoFilterTypes
 }
 
+export interface IToggleTodoDoneAction extends Action {
+  type: 'TOGGLE_TODO_DONE_ACTION'
+  flag: boolean
+  todoId: number
+  doneTimestamp?: number
+}
+
 export type TTodosActions =
   | ILoadTasksAction
   | ILoadTasksSuccessAction
@@ -36,3 +43,4 @@ export type TTodosActions =
   | IAddTaskAction
   | IDeleteTaskAction
   | IChangeFilterTypesAction
+  | IToggleTodoDoneAction

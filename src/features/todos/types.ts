@@ -1,8 +1,9 @@
 export interface ITodo {
-  id: number
+  timestamp: number
   name: string
   description: string
   isDone: boolean
+  doneTimestamp?: number
 }
 
 export enum TodoFilterTypes {

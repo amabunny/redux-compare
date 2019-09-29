@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { useThunkDispatch } from 'features/store'
 import { Form as AntdForm, Input, Button, Typography } from 'antd'
-import { addTask } from '../../store/actions'
+import { addTaskThunk } from '../../store/actions'
 
 export const Form = () => {
   const dispatch = useThunkDispatch()
@@ -28,12 +28,7 @@ export const Form = () => {
       e.preventDefault()
 
       dispatch(
-        addTask({
-          id: new Date().getTime(),
-          name,
-          description,
-          isDone: false
-        })
+        addTaskThunk(name, description)
       )
 
       setName('')
