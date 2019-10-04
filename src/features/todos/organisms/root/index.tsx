@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback } from 'react'
 import { Row, Col, Spin } from 'antd'
-import { useThunkDispatch, useSelector } from 'features/store'
+import { useSelector } from 'react-redux'
+import { useThunkDispatch, IState } from 'features/store'
 import { Form } from '../form'
 import { List } from '../list'
 import { FilterTypesSelect } from '../../molecules/filter-types-select'
@@ -10,7 +11,7 @@ import { TodoFilterTypes } from '../../types'
 export const TodosRoot = () => {
   const dispatch = useThunkDispatch()
 
-  const { loading, filterType } = useSelector(state => ({
+  const { loading, filterType } = useSelector((state: IState) => ({
     loading: state.todos.loading,
     filterType: state.todos.filterType
   }))
