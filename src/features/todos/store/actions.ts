@@ -18,7 +18,7 @@ export const loadTasksThunk = (): ThunkAction<
 > => dispatch => {
   dispatch({ type: "LOAD_TASKS" })
 
-  return tasksApi().then(
+  return tasksApi.load().then(
     data => {
       dispatch({ type: "LOAD_TASKS_SUCCESS", data })
     },
@@ -60,12 +60,12 @@ export const changeFilterType = (
 })
 
 export const toggleTodoDone = (
-  todoId: number,
+  todoTimestamp: number,
   flag: boolean,
   doneTimestamp?: number
 ): IToggleTodoDoneAction => ({
-  type: "TOGGLE_TODO_DONE_ACTION",
-  todoId,
+  type: "TOGGLE_TODO_DONE",
+  todoTimestamp,
   flag,
   doneTimestamp
 })

@@ -48,11 +48,11 @@ export const todosReducer = (state = initialState, action: TTodosActions): ITodo
         filterType: action.filterType
       }
 
-    case 'TOGGLE_TODO_DONE_ACTION':
+    case 'TOGGLE_TODO_DONE':
       return {
         ...state,
         data: state.data.map(todo => {
-          if (todo.timestamp === action.todoId) {
+          if (todo.timestamp === action.todoTimestamp) {
             return {
               ...todo,
               isDone: action.flag,

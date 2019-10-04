@@ -2,7 +2,7 @@ import { ITodo } from 'features/todos'
 
 const DEFAULT_TASKS_PROMISE_MS_DELAY = 1000
 
-export const tasksApi = () => new Promise<ITodo[]>((resolve, reject) => {
+const load = () => new Promise<ITodo[]>((resolve, reject) => {
   const tasks = localStorage.getItem('tasks')
 
   setTimeout(() => {
@@ -13,3 +13,12 @@ export const tasksApi = () => new Promise<ITodo[]>((resolve, reject) => {
     }
   }, DEFAULT_TASKS_PROMISE_MS_DELAY)
 })
+
+const save = (todos: ITodo[]) => {
+  localStorage.setItem('tasks', JSON.stringify(todos))
+}
+
+export const tasksApi = {
+  load,
+  save
+}

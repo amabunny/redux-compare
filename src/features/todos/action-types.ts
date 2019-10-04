@@ -30,9 +30,9 @@ export interface IChangeFilterTypesAction extends Action {
 }
 
 export interface IToggleTodoDoneAction extends Action {
-  type: 'TOGGLE_TODO_DONE_ACTION'
+  type: 'TOGGLE_TODO_DONE'
   flag: boolean
-  todoId: number
+  todoTimestamp: number
   doneTimestamp?: number
 }
 
