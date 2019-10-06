@@ -40,7 +40,9 @@ export const addTaskThunk = (
   dispatch(
     addTask({
       name,
-      description,
+      description: description
+        ? description
+        : undefined,
       isDone: false,
       timestamp: new Date().getTime()
     })

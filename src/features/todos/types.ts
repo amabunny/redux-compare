@@ -1,24 +1,24 @@
 export interface ITodo {
   timestamp: number
   name: string
-  description: string
+  description?: string
   isDone: boolean
   doneTimestamp?: number
 }
 
 export enum TodoFilterTypes {
+  allTasks = 'allTasks',
   justDoneTasks = 'justDoneTasks',
-  justUndoneTasks = 'justUndoneTasks',
-  allTasks = 'allTasks'
+  justUndoneTasks = 'justUndoneTasks'
 }
 
 // Do not use this in production
 // because its internationalization case
-type ITodoFitlerTypesTranslates = {
+type ITodoFilterTypesTranslates = {
   [key in TodoFilterTypes]: string
 }
 
-export const TodoFilterTypesTranslates: ITodoFitlerTypesTranslates = {
+export const TodoFilterTypesTranslates: ITodoFilterTypesTranslates = {
   allTasks: 'Все задачи',
   justDoneTasks: 'Только выполненные',
   justUndoneTasks: 'Только невыполненные'
@@ -31,4 +31,4 @@ export interface ITodosState {
   filterType: TodoFilterTypes
 }
 
-export * from './action-types'
+export * from './store/action-types'

@@ -1,5 +1,5 @@
 import { Action } from 'redux'
-import { ITodo, TodoFilterTypes } from './types'
+import { ITodo, TodoFilterTypes } from '../types'
 
 export interface ILoadTasksAction extends Action {
   type: 'LOAD_TASKS'

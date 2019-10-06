@@ -60,7 +60,7 @@ export const List = () => {
             <Col>
               <Checkbox
                 checked={isDone}
-                onChange={e => dispatch(toggleTodoDoneThunk(timestamp, !isDone))}
+                onChange={() => dispatch(toggleTodoDoneThunk(timestamp, !isDone))}
               />
             </Col>
 
@@ -87,9 +87,11 @@ export const List = () => {
               size='small'
               extra={cardExtra}
             >
-              <Typography.Paragraph style={{ whiteSpace: 'pre-line' }}>
-                {description}
-              </Typography.Paragraph>
+              {!!description &&
+                <Typography.Paragraph style={{ whiteSpace: 'pre-line' }}>
+                  {description}
+                </Typography.Paragraph>
+              }
 
               <div>
                 <strong>
